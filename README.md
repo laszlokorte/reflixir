@@ -51,9 +51,13 @@ cc = CGA2.wedge(p4, p5) |> CGA2.wedge(p6)
   {:purple, p4},
   {:purple, p5},
   {:purple, p6},
+  #intersection between circle 2 and circle 3
   {{:orange, :green}, CGA2.meet(c2, c3)},
+  #intersection between circle 1 and circle 2
   {{:blue, :green}, CGA2.meet(c1, c2)},
+  #intersection between circle 1 and circle 3
   {{:blue, :orange}, CGA2.meet(c1, c3)},
+  # point pair from two points
   {:green, CGA2.wedge(CGA2.point(20, 10), CGA2.point(10, -20))},
   {:magenta, CGA2.point(60, -16)}
 ]
