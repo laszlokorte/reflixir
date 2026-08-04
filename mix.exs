@@ -36,6 +36,7 @@ defmodule Reflixir.MixProject do
   defp deps do
     [
       {:galixir, "~> 0.28"},
+      {:kino, "~> 0.19"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
