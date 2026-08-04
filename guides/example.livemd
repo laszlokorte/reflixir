@@ -121,10 +121,6 @@ Kino.HTML.new("""
       box-sizing: border-box;
     }
 
-    line {
-      vector-effect: non-scaling-stroke;
-    }
-
     line[stroke="black"] {
       marker-end: url("#vector-head");
       stroke-width: 1;
