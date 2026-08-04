@@ -65,7 +65,7 @@ cc = CGA2.wedge(p4, p5) |> CGA2.wedge(p6)
 )
 ```
 
-![Result](./guides/example2d.svg)
+<img src="./guides/example2d.svg" alt="Result" width="100%" />
 
 ### PGA 3D
 
@@ -155,4 +155,4 @@ Reflixir.PGA3Screen.new(%{height: 3, width: 1}, fn %{height: h, width: w} ->
 end)
 ```
 
-![Result](./guides/example3d.svg)
+<img src="./guides/example3d.svg" alt="Result" width="100%" />
