@@ -8,20 +8,7 @@
     height="50"
     preserveAspectRatio="xMidYMid slice"
 >
-    <style>
-          line {
-        vector-effect: non-scaling-stroke;
-      }
 
-      line[stroke="black"] {
-        marker-end: url("#vector-head");
-        stroke-width: 1;
-      }
-
-      text {
-        transform: translate(0, -5px);
-      }
-    </style>
     <polygon
         fill="#4444"
         points="3.0559330780335583 16.844740567267888 -14.086362201597199 10.117665024529204 -2.6753206363765574 2.492770566012551 13.051204915887562 7.5433454284997055"
@@ -47,6 +34,7 @@
         points="3.4026178069589164 7.18303741181369 -14.568239079276019 1.1319041976083204 0.36299355483977247 -20.201884860154752"
     />
       <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -65,6 +53,7 @@
         y="-6.5094237241705315"
     >0</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -83,6 +72,7 @@
         y="-9.534990331273216"
     >1</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -101,6 +91,7 @@
         y="-12.882818237468127"
     >2</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -119,6 +110,7 @@
         y="-10.63639845066475"
     >3</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -137,6 +129,7 @@
         y="4.157470804711005"
     >4</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -155,6 +148,7 @@
         y="-3.3173318279781236"
     >5</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -173,6 +167,7 @@
         y="-2.2159237085865904"
     >6</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="royalblue"
@@ -191,6 +186,7 @@
         y="3.056062685319472"
     >7</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="teal"
@@ -209,6 +205,7 @@
         y="13.481202795898547"
     >8</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="teal"
@@ -227,6 +224,7 @@
         y="5.018057997256128"
     >9</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="teal"
@@ -245,6 +243,7 @@
         y="6.3052177952708774"
     >10</text>
 <line
+        vector-effect="non-scaling-stroke"
         stroke-width="2"
         stroke-linecap="round"
         stroke="teal"
@@ -263,10 +262,11 @@
         y="12.194042997883797"
     >11</text>
 <line
-        stroke-width="2"
+        vector-effect="non-scaling-stroke"
+        stroke-width="1"
         stroke-linecap="round"
         stroke="black"
-        r="2"
+        marker-end="url("#vector-head")"
         x1="-33.24943124209666"
         y1="-2.8861582638671233"
         x2="53.56744329576665"
@@ -281,10 +281,11 @@
         y="12.438729618243181"
     >12</text>
 <line
-        stroke-width="2"
+        vector-effect="non-scaling-stroke"
+        stroke-width="1"
         stroke-linecap="round"
         stroke="black"
-        r="2"
+        marker-end="url("#vector-head")"
         x1="19.430923791987176"
         y1="-6.450395321188764"
         x2="-42.77166998530122"
@@ -299,10 +300,11 @@
         y="17.756843274183527"
     >13</text>
 <line
-        stroke-width="2"
+        vector-effect="non-scaling-stroke"
+        stroke-width="1"
         stroke-linecap="round"
         stroke="black"
-        r="2"
+        marker-end="url("#vector-head")"
         x1="-0.5599124852725548"
         y1="31.16112506248814"
         x2="0.5728068661388837"
