@@ -15,7 +15,14 @@ defmodule Reflixir.PGA3Scene do
     }
   end
 
-  def to_svg(%__MODULE__{points: points, edges: edges, faces: faces, labels: labels}, camera) do
+  def to_svg(
+        %__MODULE__{points: points, edges: edges, faces: faces, labels: labels},
+        camera,
+        opts \\ []
+      ) do
+    height = Keyword.get(opts, :height, 50)
+    width = Keyword.get(opts, :width, 100)
+
     project = fn cam, p ->
       camera_point = PGA3.transform(p, cam)
       {x, y, z} = PGA3.point_coordinates(camera_point)
@@ -28,8 +35,8 @@ defmodule Reflixir.PGA3Scene do
     <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="-100 -100 200 200"
-    width="100"
-    height="50"
+    width="#{width}"
+    height="#{height}"
     preserveAspectRatio="xMidYMid slice"
     >
 
@@ -47,22 +54,59 @@ defmodule Reflixir.PGA3Scene do
       {screen1_x, screen1_y, z} = project.(camera, p1)
       {screen2_x, screen2_y, _} = project.(camera, p2)
       """
-        <line stroke-width="2" stroke-linecap="round" stroke="#{color}" r="2" x1="#{screen1_x}" y1="#{screen1_y}" x2="#{screen2_x}" y2="#{screen2_y}"></line>
-        <text visibility="hidden" fill="none"  opacity="0.5" font-size="#{16 / abs(z)}" x="#{(screen1_x + screen2_x) / 2}" y="#{(screen1_y + screen2_y) / 2}" >#{i}</text>
+      <g>
+        <line
+        vector-effect="non-scaling-stroke"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke="#{color}"
+        x1="#{screen1_x}"
+        y1="#{screen1_y}"
+        x2="#{screen2_x}"
+        y2="#{screen2_y}"></line>
+        <text
+          text-anchor="middle"
+          dominant-baseline="central"
+          visibility="hidden"
+          fill="none"
+          opacity="0.5"
+          font-size="#{16 / abs(z)}"
+          x="#{(screen1_x + screen2_x) / 2}"
+          y="#{(screen1_y + screen2_y) / 2}">
+          #{i}
+          </text>
+      </g>
       """
     end |> Enum.join("\n")}
 
-         #{for {{color, p}, i} <- points |> Enum.with_index() do
+    #{for {{color, p}, i} <- points |> Enum.with_index() do
       {screen_x, screen_y, z} = project.(camera, p)
       """
+      <g>
         <circle fill="#{color}" r="#{10 / abs(z)}" cx="#{screen_x}" cy="#{screen_y}"></circle>
-        <text visibility="hidden" fill="none" opacity="0.5" font-size="#{16 / abs(z)}" x="#{screen_x}" y="#{screen_y}">#{i}</text>
+        <text
+        text-anchor="middle"
+        dominant-baseline="central"
+        visibility="hidden"
+        fill="none"
+        opacity="0.5"
+        font-size="#{16 / abs(z)}"
+        x="#{screen_x}"
+        y="#{screen_y}">#{i}</text>
+      </g>
       """
     end |> Enum.join("\n")}
         #{for {color, p, l} <- labels do
       {screen_x, screen_y, _z} = project.(camera, p)
       """
-        <text fill="#{color}" font-size="#{3}" x="#{screen_x}" y="#{screen_y}">#{l}</text>
+        <text
+        text-anchor="middle"
+        dominant-baseline="central"
+        fill="#{color}"
+        font-size="#{3}"
+        transform="translate(0, -5)"
+        x="#{screen_x}"
+        y="#{screen_y}">#{l}</text>
       """
     end |> Enum.join("\n")}
              <defs>

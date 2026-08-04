@@ -8,6 +8,11 @@
     height="50"
     preserveAspectRatio="xMidYMid slice"
 >
+    <style>
+        text {
+              transform: translate(0, -5px);
+            }
+    </style>
 
     <polygon
         fill="#4444"
