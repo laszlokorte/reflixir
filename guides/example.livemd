@@ -1,0 +1,272 @@
+# Geometric Algebra with Galixir and Reflixir
+
+```elixir
+Mix.install([
+  {:galixir, "~> 0.28.0"},
+  {:kino, "~> 0.19.0"},
+  {:reflixir, "~> 0.2.0"}
+])
+```
+
+## 3D Rendering
+
+```elixir
+pyramid_tip = PGA3.point(0, 0, 3)
+
+scene =
+  Reflixir.PGA3Scene.new(
+    points: [
+      {"rebeccapurple", pyramid_tip},
+      {"tomato", PGA3.point(1, 1, 1)},
+      {"tomato", PGA3.point(1, -1, 1)},
+      {"tomato", PGA3.point(-1, -1, 1)},
+      {"tomato", PGA3.point(-1, 1, 1)},
+      {"yellowgreen", PGA3.point(1, 0, 1)},
+      {"yellowgreen", PGA3.point(-1, 0, 1)},
+      {"yellowgreen", PGA3.point(0, -1, 1)},
+      {"yellowgreen", PGA3.point(0, 1, 1)},
+      {"teal", PGA3.point(1, 1, 0)},
+      {"teal", PGA3.point(1, -1, 0)},
+      {"teal", PGA3.point(-1, -1, 0)},
+      {"teal", PGA3.point(-1, 1, 0)}
+    ],
+    edges: [
+      {"royalblue", {PGA3.point(1, 1, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(-1, 1, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(-1, -1, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(1, -1, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(1, 1, 1), PGA3.point(-1, 1, 1)}},
+      {"royalblue", {PGA3.point(1, -1, 1), PGA3.point(-1, -1, 1)}},
+      {"royalblue", {PGA3.point(-1, 1, 1), PGA3.point(-1, -1, 1)}},
+      {"royalblue", {PGA3.point(1, 1, 1), PGA3.point(1, -1, 1)}},
+      {"teal", {PGA3.point(1, 1, 0), PGA3.point(-1, 1, 0)}},
+      {"teal", {PGA3.point(1, -1, 0), PGA3.point(-1, -1, 0)}},
+      {"teal", {PGA3.point(-1, 1, 0), PGA3.point(-1, -1, 0)}},
+      {"teal", {PGA3.point(1, 1, 0), PGA3.point(1, -1, 0)}},
+      {"black", {PGA3.point(-5, 0, 0), PGA3.point(5, 0, 0)}},
+      {"black", {PGA3.point(0, -5, 0), PGA3.point(0, 5, 0)}},
+      {"black", {PGA3.point(0, 0, -3), PGA3.point(0, 0, 4)}}
+    ],
+    faces: [
+      {"#4444",
+       [
+         PGA3.point(1, 1, 0),
+         PGA3.point(-1, 1, 0),
+         PGA3.point(-1, -1, 0),
+         PGA3.point(1, -1, 0)
+       ]},
+      {"#5554",
+       [
+         PGA3.point(1, 1, 1),
+         PGA3.point(-1, 1, 1),
+         PGA3.point(-1, -1, 1),
+         PGA3.point(1, -1, 1)
+       ]},
+      {"#0504",
+       [
+         PGA3.point(1, 1, 1),
+         PGA3.point(1, -1, 1),
+         pyramid_tip
+       ]},
+      {"#5504",
+       [
+         PGA3.point(-1, 1, 1),
+         PGA3.point(-1, -1, 1),
+         pyramid_tip
+       ]},
+      {"#0554",
+       [
+         PGA3.point(-1, -1, 1),
+         PGA3.point(1, -1, 1),
+         pyramid_tip
+       ]},
+      {"#5054",
+       [
+         PGA3.point(1, 1, 1),
+         PGA3.point(-1, 1, 1),
+         pyramid_tip
+       ]}
+    ],
+    labels: [
+      {"black", PGA3.point(5, 0, 0), "X"},
+      {"black", PGA3.point(0, 5, 0), "Y"},
+      {"black", PGA3.point(0, 0, 4), "Z"}
+    ]
+  )
+
+Kino.nothing()
+```
+
+```elixir
+camera =
+  Reflixir.Camera.look_at(
+    %{
+      yaw: 1,
+      pitch: 0.5,
+      radius: 20,
+      roll: 0
+    },
+    %{x: 0, y: 0, z: 1}
+  )
+
+Kino.HTML.new("""
+  #{Reflixir.PGA3Scene.to_svg(scene, camera)}
+  <style>
+    svg {
+      font-family: monospace, monospace;
+      text-anchor: middle;
+      border: 2px solid #aaa;
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+    }
+
+    line {
+      vector-effect: non-scaling-stroke;
+    }
+
+    line[stroke="black"] {
+      marker-end: url("#vector-head");
+      stroke-width: 1;
+    }
+
+    text {
+      transform: translate(0, -5px);
+    }
+  </style>
+""")
+```
+
+## Interactive PGA2
+
+```elixir
+Reflixir.PGA3Screen.new(%{height: 3, width: 1}, fn %{height: h, width: w} ->
+  pyramid_tip = PGA3.point(0, 0, h)
+
+  Reflixir.PGA3Scene.new(
+    points: [
+      {"rebeccapurple", pyramid_tip},
+      {"tomato", PGA3.point(w, w, 1)},
+      {"tomato", PGA3.point(w, -w, 1)},
+      {"tomato", PGA3.point(-w, -1, 1)},
+      {"tomato", PGA3.point(-w, w, 1)},
+      {"yellowgreen", PGA3.point(w, 0, 1)},
+      {"yellowgreen", PGA3.point(-w, 0, 1)},
+      {"yellowgreen", PGA3.point(0, -w, 1)},
+      {"yellowgreen", PGA3.point(0, w, 1)},
+      {"teal", PGA3.point(w, w, 0)},
+      {"teal", PGA3.point(w, -w, 0)},
+      {"teal", PGA3.point(-w, -w, 0)},
+      {"teal", PGA3.point(-w, w, 0)}
+    ],
+    edges: [
+      {"royalblue", {PGA3.point(w, w, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(-w, w, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(-w, -w, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(w, -w, 1), pyramid_tip}},
+      {"royalblue", {PGA3.point(w, w, 1), PGA3.point(-w, w, 1)}},
+      {"royalblue", {PGA3.point(w, -w, 1), PGA3.point(-w, -w, 1)}},
+      {"royalblue", {PGA3.point(-w, w, 1), PGA3.point(-w, -w, 1)}},
+      {"royalblue", {PGA3.point(w, w, 1), PGA3.point(w, -w, 1)}},
+      {"teal", {PGA3.point(w, w, 0), PGA3.point(-w, w, 0)}},
+      {"teal", {PGA3.point(w, -w, 0), PGA3.point(-w, -w, 0)}},
+      {"teal", {PGA3.point(-w, w, 0), PGA3.point(-w, -w, 0)}},
+      {"teal", {PGA3.point(w, w, 0), PGA3.point(w, -w, 0)}},
+      {"black", {PGA3.point(-5, 0, 0), PGA3.point(5, 0, 0)}},
+      {"black", {PGA3.point(0, -5, 0), PGA3.point(0, 5, 0)}},
+      {"black", {PGA3.point(0, 0, -3), PGA3.point(0, 0, 4)}}
+    ],
+    faces: [
+      {"#4444",
+       [
+         PGA3.point(w, w, 0),
+         PGA3.point(-w, w, 0),
+         PGA3.point(-w, -w, 0),
+         PGA3.point(w, -w, 0)
+       ]},
+      {"#5554",
+       [
+         PGA3.point(w, w, 1),
+         PGA3.point(-w, w, 1),
+         PGA3.point(-w, -w, 1),
+         PGA3.point(w, -w, 1)
+       ]},
+      {"#0504",
+       [
+         PGA3.point(w, w, 1),
+         PGA3.point(w, -w, 1),
+         pyramid_tip
+       ]},
+      {"#5504",
+       [
+         PGA3.point(-w, w, 1),
+         PGA3.point(-w, -w, 1),
+         pyramid_tip
+       ]},
+      {"#0554",
+       [
+         PGA3.point(-w, -w, 1),
+         PGA3.point(w, -w, 1),
+         pyramid_tip
+       ]},
+      {"#5054",
+       [
+         PGA3.point(w, w, 1),
+         PGA3.point(-w, w, 1),
+         pyramid_tip
+       ]}
+    ],
+    labels: [
+      {"black", PGA3.point(5, 0, 0), "X"},
+      {"black", PGA3.point(0, 5, 0), "Y"},
+      {"black", PGA3.point(0, 0, 4), "Z"}
+    ]
+  )
+end)
+```
+
+<!-- livebook:{"branch_parent_index":0} -->
+
+## Conformal Geometric Algebra (2D)
+
+```elixir
+alias Galixir.Algebras.CGA2
+
+p0 = CGA2.point(10, 4)
+p1 = CGA2.point(10, 15)
+p2 = CGA2.point(0, 10)
+
+c1 = CGA2.circle(p0, 15)
+c2 = CGA2.circle(p2, 10)
+c3 = CGA2.circle(p1, 25)
+
+p4 = CGA2.point(50, 8)
+p5 = CGA2.point(43, 20)
+p6 = CGA2.point(60, 10)
+
+cc = CGA2.wedge(p4, p5) |> CGA2.wedge(p6)
+
+[
+  {:blue, c1},
+  {:green, c2},
+  {:green, p2},
+  {:orange, c3},
+  {:orange, p1},
+  {:blue, p0},
+  {:hotpink, cc},
+  {:purple, p4},
+  {:purple, p5},
+  {:purple, p6},
+  {{:orange, :green}, CGA2.meet(c2, c3)},
+  {{:blue, :green}, CGA2.meet(c1, c2)},
+  {{:blue, :orange}, CGA2.meet(c1, c3)},
+  {:green, CGA2.wedge(CGA2.point(20, 10), CGA2.point(10, -20))},
+  {:magenta, CGA2.point(60, -16)}
+]
+|> Reflixir.CGA2Canvas.to_svg(
+  thickness: 1,
+  height: 40,
+  width: 90,
+  viewbox: {-100, -50, 200, 100}
+)
+```
