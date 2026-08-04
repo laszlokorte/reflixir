@@ -25,7 +25,13 @@ defmodule Reflixir.PGA3Scene do
     end
 
     """
-    <svg viewBox="-100 -100 200 200" width="100" height="50" preserveAspectRatio="xMidYMid slice">
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="-100 -100 200 200"
+    width="100"
+    height="50"
+    preserveAspectRatio="xMidYMid slice"
+    >
 
       #{for {color, ps} <- faces do
       path = for p <- ps do

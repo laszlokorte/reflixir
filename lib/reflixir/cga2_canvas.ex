@@ -11,7 +11,10 @@ defmodule Reflixir.CGA2Canvas do
     """
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="#{vx} #{vy} #{vw} #{vh}" width="#{width}" height="#{height}">
+      viewBox="#{vx} #{vy} #{vw} #{vh}"
+      width="#{width}"
+      height="#{height}"
+    >
     <defs>
               <marker
                   id="vector-head"
