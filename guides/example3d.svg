@@ -8,6 +8,20 @@
     height="50"
     preserveAspectRatio="xMidYMid slice"
 >
+    <style>
+          line {
+        vector-effect: non-scaling-stroke;
+      }
+
+      line[stroke="black"] {
+        marker-end: url("#vector-head");
+        stroke-width: 1;
+      }
+
+      text {
+        transform: translate(0, -5px);
+      }
+    </style>
     <polygon
         fill="#4444"
         points="3.0559330780335583 16.844740567267888 -14.086362201597199 10.117665024529204 -2.6753206363765574 2.492770566012551 13.051204915887562 7.5433454284997055"
