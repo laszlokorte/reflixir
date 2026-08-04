@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="-100 -50 200 100"
+    width="90"
+    height="40"
+>
+<defs>
+          <marker
+            id="vector-head"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="20"
+            markerHeight="20"
+            fill="context-stroke"
+            orient="auto-start-reverse"
+        >
+              <path d="M 10 5 l -10 5 l 3 -5 l -3 -5 z" />
+          </marker>
+      </defs>
+<line
+        marker-end="url(#vector-head)"
+        x1="-100"
+        y1="0"
+        x2="100"
+        y2="0"
+        stroke-width="0.5"
+        stroke="black"
+        vector-effect="non-scaling-stroke"
+    />
+<line
+        marker-end="url(#vector-head)"
+        y2="-50"
+        x1="0"
+        y1="50"
+        x2="0"
+        stroke-width="0.5"
+        stroke="black"
+        vector-effect="non-scaling-stroke"
+    />
+
+  <circle
+        cx="10.0"
+        cy="-4.0"
+        r="15.0"
+        fill="blue"
+        fill-opacity="0.1"
+        stroke="blue"
+        stroke-width="1"
+    >
+<title>Circle ~G[54.0e12p + 55.0e12m + 4.0e1pm - 10.0e2pm]</title>
+</circle>
+<circle
+        cx="0.0"
+        cy="-10.0"
+        r="10.0"
+        fill="green"
+        fill-opacity="0.1"
+        stroke="green"
+        stroke-width="1"
+    >
+<title>Circle ~G[-0.5e12p + 0.5e12m + 10.0e1pm]</title>
+</circle>
+<circle cx="0.0" cy="-10.0" r="1.5" fill="green" stroke="none" stroke-width="1">
+<title>Point ~G[10.0e2 + 49.5ep + 50.5em]</title>
+</circle>
+<circle
+        cx="10.0"
+        cy="-15.0"
+        r="25.0"
+        fill="orange"
+        fill-opacity="0.1"
+        stroke="orange"
+        stroke-width="1"
+    >
+<title>Circle ~G[149.5e12p + 150.5e12m + 15.0e1pm - 10.0e2pm]</title>
+</circle>
+<circle
+        cx="10.0"
+        cy="-15.0"
+        r="1.5"
+        fill="orange"
+        stroke="none"
+        stroke-width="1"
+    >
+<title>Point ~G[10.0e1 + 15.0e2 + 162.0ep + 163.0em]</title>
+</circle>
+<circle cx="10.0" cy="-4.0" r="1.5" fill="blue" stroke="none" stroke-width="1">
+<title>Point ~G[10.0e1 + 4.0e2 + 57.5ep + 58.5em]</title>
+</circle>
+<circle
+        cx="53.21641791044776"
+        cy="-17.917910447761194"
+        r="10.426422772190831"
+        fill="hotpink"
+        fill-opacity="0.1"
+        stroke="hotpink"
+        stroke-width="1"
+    >
+<title>Circle ~G[204037.0e12p + 203903.0e12m - 2401.0e1pm + 7131.0e2pm]</title>
+</circle>
+<circle
+        cx="50.0"
+        cy="-8.0"
+        r="1.5"
+        fill="purple"
+        stroke="none"
+        stroke-width="1"
+    >
+<title>Point ~G[50.0e1 + 8.0e2 + 1281.5ep + 1282.5em]</title>
+</circle>
+<circle
+        cx="43.0"
+        cy="-20.0"
+        r="1.5"
+        fill="purple"
+        stroke="none"
+        stroke-width="1"
+    >
+<title>Point ~G[43.0e1 + 20.0e2 + 1124.0ep + 1125.0em]</title>
+</circle>
+<circle
+        cx="60.0"
+        cy="-10.0"
+        r="1.5"
+        fill="purple"
+        stroke="none"
+        stroke-width="1"
+    >
+<title>Point ~G[60.0e1 + 10.0e2 + 1849.5ep + 1850.5em]</title>
+</circle>
+<g>
+<circle
+            cx="-22.6332495807108"
+            cy="-15.2664991614216"
+            r="1.5"
+            stroke="orange"
+            fill="green"
+            stroke-dasharray="0.78525 0.78525"
+            stroke-width="1.0"
+        />
+<circle
+            cx="-22.6332495807108"
+            cy="-15.2664991614216"
+            r="1.5"
+            stroke="green"
+            fill="none"
+            stroke-dasharray="0.78525 0.78525"
+            stroke-dashoffset="0.78525"
+            stroke-width="0.5"
+        />
+<title
+        >Point Pair (1/2) ~G[150.0e12 + 1502.5e1p - 5.0e2p + 1497.5e1m + 5.0e2m + 100.0epm]</title>
+</g>
+<g>
+<circle
+            cx="-9.3667504192892"
+            cy="11.2664991614216"
+            r="1.5"
+            fill="orange"
+            stroke-dasharray="0.78525 0.78525"
+            stroke-dashoffset="0.78525"
+            stroke="orange"
+            stroke-width="1.0"
+        />
+
+<circle
+            cx="-9.3667504192892"
+            cy="11.2664991614216"
+            r="1.5"
+            fill="none"
+            stroke-dasharray="0.78525 0.78525"
+            stroke="green"
+            stroke-width="0.5"
+        />
+<title
+        >Point Pair (2/2) ~G[150.0e12 + 1502.5e1p - 5.0e2p + 1497.5e1m + 5.0e2m + 100.0epm]</title>
+</g>
+<g>
+<circle
+            cx="-4.734820730534861"
+            cy="-1.1919654491085652"
+            r="1.0"
+            stroke="blue"
+            fill="green"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-width="1.5"
+        />
+<circle
+            cx="-4.734820730534861"
+            cy="-1.1919654491085652"
+            r="1.0"
+            stroke="green"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (1/2) ~G[-54.5e12 - 542.0e1p + 5.0e2p - 548.0e1m - 5.0e2m - 100.0epm]</title>
+</g>
+<g>
+<circle
+            cx="5.543644259946626"
+            cy="-18.322740433244377"
+            r="1.0"
+            fill="blue"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke="blue"
+            stroke-width="1.5"
+        />
+
+<circle
+            cx="5.543644259946626"
+            cy="-18.322740433244377"
+            r="1.0"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke="green"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (2/2) ~G[-54.5e12 - 542.0e1p + 5.0e2p - 548.0e1m - 5.0e2m - 100.0epm]</title>
+</g>
+<g>
+<circle
+            cx="1.9892891948775357"
+            cy="8.681818181818182"
+            r="1.0"
+            stroke="blue"
+            fill="orange"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-width="1.5"
+        />
+<circle
+            cx="1.9892891948775357"
+            cy="8.681818181818182"
+            r="1.0"
+            stroke="orange"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (1/2) ~G[95.5e12 - 212.0e1p - 955.0e2p - 223.0e1m - 955.0e2m - 110.0epm]</title>
+</g>
+<g>
+<circle
+            cx="18.010710805122464"
+            cy="8.681818181818182"
+            r="1.0"
+            fill="blue"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke="blue"
+            stroke-width="1.5"
+        />
+
+<circle
+            cx="18.010710805122464"
+            cy="8.681818181818182"
+            r="1.0"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke="orange"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (2/2) ~G[95.5e12 - 212.0e1p - 955.0e2p - 223.0e1m - 955.0e2m - 110.0epm]</title>
+</g>
+<g>
+<circle
+            cx="20.0"
+            cy="-10.0"
+            r="1.0"
+            stroke="green"
+            fill="white"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-width="1.5"
+        />
+<circle
+            cx="20.0"
+            cy="-10.0"
+            r="1.0"
+            stroke="white"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (1/2) ~G[-500.0e12 + 2495.0e1p + 7485.0e2p + 2505.0e1m + 7515.0e2m]</title>
+</g>
+<g>
+<circle
+            cx="10.0"
+            cy="20.0"
+            r="1.0"
+            fill="green"
+            stroke-dasharray="0.5235 0.5235"
+            stroke-dashoffset="0.5235"
+            stroke="green"
+            stroke-width="1.5"
+        />
+
+<circle
+            cx="10.0"
+            cy="20.0"
+            r="1.0"
+            fill="none"
+            stroke-dasharray="0.5235 0.5235"
+            stroke="white"
+            stroke-width="1.5"
+        />
+<title
+        >Point Pair (2/2) ~G[-500.0e12 + 2495.0e1p + 7485.0e2p + 2505.0e1m + 7515.0e2m]</title>
+</g>
+<circle
+        cx="60.0"
+        cy="16.0"
+        r="1.5"
+        fill="magenta"
+        stroke="none"
+        stroke-width="1"
+    >
+<title>Point ~G[60.0e1 - 16.0e2 + 1927.5ep + 1928.5em]</title>
+</circle>
+
+</svg>

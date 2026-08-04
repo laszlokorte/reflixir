@@ -65,6 +65,8 @@ cc = CGA2.wedge(p4, p5) |> CGA2.wedge(p6)
 )
 ```
 
+![Result](./guides/example2d.svg)
+
 ### PGA 3D
 
 ```elixir
