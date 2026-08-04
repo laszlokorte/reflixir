@@ -1,4 +1,4 @@
-defmodule Camera do
+defmodule Reflixir.Camera do
   alias Galixir.Algebras.PGA3
 
   def look_at(

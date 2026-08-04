@@ -16,12 +16,12 @@ defmodule Reflixir.PGA3Screen do
           focus: %{x: fx, y: fy, z: fz}
         } \\ %{
           eye: %{
-            yaw: 5,
-            pitch: 5,
-            radius: 10,
+            yaw: 1,
+            pitch: 0.5,
+            radius: 20,
             roll: 0
           },
-          focus: %{x: 0, y: 0, z: 0}
+          focus: %{x: 0, y: 0, z: 1}
         }
       ) do
     state = %{
@@ -42,29 +42,36 @@ defmodule Reflixir.PGA3Screen do
   end
 
   def render(%{
-        data:
-          eye = %{
-            eye: %{
+        cam: %{
+          eye:
+            eye = %{
               yaw: yaw,
               pitch: pitch,
               radius: radius,
               roll: roll
             },
-            focus: %{x: fx, y: fy, z: fz} = focus
-          },
+          focus: %{x: fx, y: fy, z: fz} = focus
+        },
         builder: builder,
         scene_data: sd
       }) do
-    camera = Camera.look_at(eye, focus)
+    camera = Reflixir.Camera.look_at(eye, focus)
 
     [
       [
         Kino.Control.form(
           [
-            eye_x: Kino.Input.range("Yaw", min: -10, max: 10, default: yaw, step: 0.2),
-            eye_y: Kino.Input.range("Pitch", min: -10, max: 10, default: pitch, step: 0.1),
-            eye_z: Kino.Input.range("Radius", min: -10, max: 10, default: radius, step: 0.1),
-            roll: Kino.Input.range("Roll", min: -2, max: 2, default: roll, step: 0.1)
+            yaw: Kino.Input.range("Yaw", min: -3.141, max: 3.141, default: yaw, step: 0.2),
+            pitch:
+              Kino.Input.range("Pitch",
+                min: -3.141 / 2,
+                max: 3.141 / 2,
+                default: pitch,
+                step: 0.1
+              ),
+            radius: Kino.Input.range("Radius", min: 1, max: 60, default: radius, step: 0.1),
+            roll:
+              Kino.Input.range("Roll", min: -3.141 / 2, max: 3.141 / 2, default: roll, step: 0.1)
           ],
           columns: 2,
           report_changes: true
@@ -122,8 +129,50 @@ defmodule Reflixir.PGA3Screen do
     |> Kino.Layout.grid()
   end
 
-  def handle_camera(%{data: data, type: :change}, state) do
-    %{state | data: Map.merge(state.data, data)}
+  def handle_camera(
+        %{
+          data: %{
+            yaw: yaw,
+            pitch: pitch,
+            radius: radius,
+            roll: roll
+          },
+          type: :change
+        },
+        state
+      ) do
+    %{
+      state
+      | cam:
+          Map.merge(state.cam, %{
+            eye: %{
+              yaw: yaw,
+              pitch: pitch,
+              radius: radius,
+              roll: roll
+            }
+          })
+    }
+  end
+
+  def handle_camera(
+        %{
+          data: %{
+            focus_x: fx,
+            focus_y: fy,
+            focus_z: fz
+          },
+          type: :change
+        },
+        state
+      ) do
+    %{
+      state
+      | cam:
+          Map.merge(state.cam, %{
+            focus: %{x: fx, y: fy, z: fz}
+          })
+    }
   end
 
   def handle_scene_data(%{data: data, type: :change}, state) do
