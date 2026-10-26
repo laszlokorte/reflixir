@@ -34,7 +34,7 @@ defmodule Reflixir.CGA2Canvas do
 
       #{for {color, s} <- shapes do
       classify(s) |> case do
-        {:circle, {{cx, cy}, r}} -> """
+        {:circle, {_kind, {cx, cy}, r}} -> """
           <circle
             cx="#{cx}"
             cy="#{-cy}"
@@ -57,8 +57,7 @@ defmodule Reflixir.CGA2Canvas do
           <title>Point #{inspect(s)}</title>
           </circle>
           """
-        {:point_pair, kind, {{cx1, cy1}, {cx2, cy2}}} -> rad = if(kind == :real, do: 0.5, else: 1) + thickness / 2
-
+        {:point_pair, {cx1, cy1}, {cx2, cy2}} -> rad = thickness / 2
           {c1, c2} = color |> case do
             {a, b} -> {a, b}
             c when is_atom(c) or is_binary(c) -> {c, "white"}
@@ -66,7 +65,7 @@ defmodule Reflixir.CGA2Canvas do
           end
           dash = rad * 3.141 / 6
           stroke = 2 + thickness / 2 - rad
-          stroke2 = if(kind == :real, do: stroke, else: stroke / 2)
+          stroke2 = stroke
           """
           <g>
           <circle

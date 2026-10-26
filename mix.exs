@@ -4,7 +4,7 @@ defmodule Reflixir.MixProject do
   def project do
     [
       app: :reflixir,
-      version: "0.3.0",
+      version: "0.4.0-rc1",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       source_url: "https://github.com/laszlokorte/reflixir",
@@ -35,7 +35,7 @@ defmodule Reflixir.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:galixir, "~> 0.28"},
+      {:galixir, "~> 0.35.0-rc1"},
       {:kino, "~> 0.19"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
